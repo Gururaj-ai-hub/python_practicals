@@ -3,13 +3,13 @@ prize = []
 
 while True:
     print("----product management-----")
-    print("1.Add product: ")
-    print("2.Display Products: ")
-    print("3.Update products: ")
-    print("4.Delete product: ")
-    print("5.Search product: ")
-    print("6.Sort : ")
-    print("7.Exit: ")
+    print("1.Add product ")
+    print("2.Display Products ")
+    print("3.Update products ")
+    print("4.Delete product ")
+    print("5.Search product ")
+    print("6.Sort ")
+    print("7.Exit ")
 
 
     choice = int(input("Enter your Choice : "))
@@ -36,18 +36,53 @@ while True:
             product.index(product2) 
             index = product.index(product2) 
             new_prize = input("Enter updated prize : ")
-            
+            prize[index] = new_prize
+            print("prize update is successful")
+        else:
+            print("new prize is not found")
 
+    elif choice == 4:
+        product3 = input("Enter product name for delete: ")
+        if product3 in product:
+            index = product.index(product3)
+            product.pop(index)
+            prize.pop(index)
+            print("Product deleted successfully...")
+        else:
+            print("product is not found...")
+
+    elif choice == 5:
+        product4 = input("Enter product name for search : ")
+        if product4 in product:
+            index = product.index(product4)
+            print("your search product is here,,")
+            print("product\tprize")
+            print(product[index],"\t",prize[index])
+             
+        else:
+            print("product is not available")
+
+    elif choice == 6:
+         for i in range(len(product)):
+            for j in range(i+1 , len(product)):
+
+                if prize[i] > prize[j]:
+                    prize[i],prize[j] = prize[j],prize[i] 
+                    product[i],product[j] =  product[j],product[i]
+                    print("Sorted Successfully")
+                print(product)
+                print(prize)
+
+
+    elif choice == 7:
+        print("Thank You......")
+        break
+
+    else:
+        print("Invalid choice..")
 
         
 
 
-
-                
-                
-    
-
-        
-        
 
 
